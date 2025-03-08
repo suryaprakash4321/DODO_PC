@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DODO & CO - Gang Information</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn about DODO & CO - The legendary gang of Los Santos. Discover our history, territory, and what makes us the elite crew in San Andreas Multiplayer.">
+    <meta name="keywords" content="DODO & CO, Los Santos Gang, GTA, San Andreas Multiplayer, SAMP Gang, Gaming Crew History">
+    <meta name="author" content="DODO & CO">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="DODO & CO - Gang Information">
+    <meta property="og:description" content="Learn about the legendary DODO & CO gang in Los Santos. Discover our history and territory.">
+    <meta property="og:image" content="assets/dodo.png">
+    <meta property="og:url" content="https://dodoandco.com/gang.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DODO & CO - Gang Information">
+    <meta name="twitter:description" content="Learn about the legendary DODO & CO gang in Los Santos. Discover our history and territory.">
+    <meta name="twitter:image" content="assets/dodo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://dodoandco.com/gang.html">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/navigation.js"></script>
+    <style>
+        /* Ultra-professional gang info page */
+        .gang-info {
+            position: relative;
+            padding: 100px 20px 80px;
+            background: linear-gradient(135deg, rgba(10,31,47,0.95), rgba(0,0,0,0.98));
+            overflow: hidden;
+        }
+        
+        /* Animated background elements */
+        .gang-bg-element {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,255,255,0.1) 0%, transparent 70%);
+            animation: float 20s infinite linear;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .gang-bg-element:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -100px;
+            animation-duration: 30s;
+        }
+        
+        .gang-bg-element:nth-child(2) {
+            width: 500px;
+            height: 500px;
+            bottom: -200px;
+            right: -200px;
+            animation-duration: 40s;
+            animation-delay: 5s;
+        }
+        
+        .gang-bg-element:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            top: 30%;
+            right: 10%;
+            animation-duration: 25s;
+            animation-delay: 2s;
+        }
+        
+        @keyframes float {
+            0% { transform: rotate(0deg) translateY(0) scale(1); }
+            50% { transform: rotate(180deg) translateY(-30px) scale(1.1); }
+            100% { transform: rotate(360deg) translateY(0) scale(1); }
+        }
+        
+        .gang-info h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(0,255,255,0.5);
+            position: relative;
+            display: inline-block;
+            z-index: 2;
+        }
+        
+        .gang-info h1:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        }
+        
+        .gang-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .gang-intro p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+        
+        .animate-type {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #00ffff;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(0,255,255,0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .animate-type:after {
+            content: '|';
+            position: absolute;
+            right: -10px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Enhanced image showcase */
+        .image-showcase {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, rgba(0,20,30,0.8), rgba(0,10,20,0.9));
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transform: perspective(1000px) rotateX(5deg);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2;
+        }
+        
+        .image-showcase:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-10px);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 30px rgba(0,255,255,0.2);
+        }
+        
+        .image-container {
+            position: relative;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid rgba(0,255,255,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: all 0.5s ease;
+        }
+        
+        .image-container:hover {
+            border-color: rgba(0,255,255,0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(0,255,255,0.3);
+        }
+        
+        .gang-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .image-container:hover .gang-img {
+            transform: scale(1.05);
+        }
+        
+        /* Enhanced border glow */
+        .image-container:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                rgba(0,255,255,0.5), 
+                transparent 40%,
+                transparent 60%,
+                rgba(0,255,255,0.5)
+            );
+            border-radius: 15px;
+            z-index: 1;
+            opacity: 0.5;
+            transition: opacity 0.5s ease;
+        }
+        
+        .image-container:hover:before {
+            opacity: 1;
+            animation: borderGlow 3s linear infinite;
+        }
+        
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        /* Image caption */
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px 20px 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container:hover .image-caption {
+            transform: translateY(0);
+        }
+        
+        .image-caption h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #00ffff;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .gang-info h1 {
+                font-size: 2.5rem;
+            }
+            
+            .animate-type {
+                font-size: 1.8rem;
+            }
+            
+            .image-showcase {
+                padding: 20px;
+                margin: 40px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="assets/dodo.png" alt="DODO & CO Logo" class="logo">
+            <div class="nav-toggle">☰</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gang.html" aria-current="page">Gang Info</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="content gang-info">
+            <h1>Gang Info</h1>
+            <div class="gang-intro">
+                <p class="animate-type">DODO & CO: Legends of Los Santos</p>
+                <p>We dominate the streets with unmatched style and power, shaping the chaos of San Andreas Multiplayer.</p>
+            </div>
+            <div class="image-showcase">
+                <div class="image-container">
+                    <img src="assets/sa-mp-053.png" alt="DODO & CO Gang" class="gang-img">
+                    <div class="image-caption">
+                        <h3>DODO & CO Elite Force</h3>
+                        <p>Dominating Los Santos with unmatched strength and unity</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gang-bg-element"></div>
+            <div class="gang-bg-element"></div>
+            <div class="gang-bg-element"></div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/dodo.png" alt="DODO & CO Logo" width="60">
+            </div>
+            <div class="footer-social">
+                <a href="https://discord.gg/enDWmazV9f" target="_blank" class="social-icon">
+                    <img src="assets/discord logo.png" width="20" height="20" alt="Discord">
+                </a>
+                <a href="https://www.instagram.com/dodo.and_co/" target="_blank" class="social-icon">
+                    <img src="assets/images-removebg-preview.png" width="20" height="20" alt="Instagram">
+                </a>
+            </div>
+            <p class="copyright">© 2025 DODO & CO. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add stagger-item class to elements that need animation
+            const staggerElements = document.querySelectorAll('.gang-intro p, .gang-img');
+            staggerElements.forEach(el => el.classList.add('stagger-item'));
+            
+            // Staggered entrance for elements
+            gsap.to('.stagger-item', {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                stagger: 0.2,
+                ease: "power2.out"
+            });
+            
+            // Add typing animation for the animate-type element
+            const typeElement = document.querySelector('.animate-type');
+            if (typeElement) {
+                const text = typeElement.textContent;
+                typeElement.textContent = '';
+                
+                let i = 0;
+                function typeWriter() {
+                    if (i < text.length) {
+                        typeElement.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 80);
+                    }
+                }
+                
+                setTimeout(typeWriter, 500);
+            }
+            
+            // Enhanced image loading and effects
+            const gangImg = document.querySelector('.gang-img');
+            const container = document.querySelector('.image-container');
+            
+            if (gangImg && container) {
+                // Ensure image loads properly
+                gangImg.style.opacity = '0';
+                
+                gangImg.onload = function() {
+                    gangImg.style.opacity = '1';
+                    container.classList.add('loaded');
+                };
+                
+                // Add fallback
+                gangImg.onerror = function() {
+                    this.src = 'assets/dodo.png';
+                    this.style.objectFit = 'contain';
+                    this.style.padding = '20px';
+                };
+            }
+            
+            // Add glow effect to headings
+            const heading = document.querySelector('.gang-info h1');
+            if (heading) {
+                gsap.to(heading, {
+                    textShadow: "0 0 15px rgba(0, 255, 255, 0.7)",
+                    repeat: -1,
+                    yoyo: true,
+                    duration: 2
+                });
+            }
+        });
+
+        // Ensure navigation works on this page
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (navToggle && navMenu) {
+                // Make sure toggle is visible and clickable
+                navToggle.style.cursor = 'pointer';
+                navToggle.style.userSelect = 'none';
+                navToggle.style.display = 'block';
+                
+                // Direct click handler
+                navToggle.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    navMenu.classList.toggle('show');
+                    console.log('Menu toggled:', navMenu.classList.contains('show'));
+                    return false;
+                };
+            }
+        });
+
+        // Add this script for enhanced animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Parallax effect for image showcase
+            const imageShowcase = document.querySelector('.image-showcase');
+            if (imageShowcase) {
+                window.addEventListener('mousemove', function(e) {
+                    const x = (window.innerWidth / 2 - e.clientX) / 30;
+                    const y = (window.innerHeight / 2 - e.clientY) / 30;
+                    
+                    imageShowcase.style.transform = `perspective(1000px) rotateX(${y/2}deg) rotateY(${-x/2}deg) translateZ(10px)`;
+                });
+                
+                // Reset on mouse leave
+                imageShowcase.addEventListener('mouseleave', function() {
+                    imageShowcase.style.transform = 'perspective(1000px) rotateX(5deg)';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

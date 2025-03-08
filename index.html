@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DODO & CO - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.png">
+    <!-- Three.js scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.134.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://unpkg.com/three@0.134.0/examples/js/loaders/MTLLoader.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="assets/dodo.png" alt="DODO & CO Logo" class="logo">
+            <div class="nav-toggle">☰</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gang.html">Gang Info</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>DODO & CO</h1>
+            <p>DODO & CO The Legends of Los Santos</p>
+            <div id="logo3d" class="logo-3d-container"></div>
+            <p id="logo-error" style="color: red; display: none;">Failed to load 3D logo. Please check file paths or console for details.</p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 DODO & CO. All Rights Reserved.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

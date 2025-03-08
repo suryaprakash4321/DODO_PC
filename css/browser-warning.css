@@ -1,0 +1,32 @@
+browser-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    z-index: 9999;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.browser-warning-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.browser-warning-close {
+    background: white;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.browser-warning-close:hover {
+    background: #eee;
+} 

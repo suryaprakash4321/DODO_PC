@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DODO & CO - Meet Our Members</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Meet the members of DODO & CO - The legendary gang of Los Santos. Our leadership, co-leaders, and crew members who dominate San Andreas Multiplayer.">
+    <meta name="keywords" content="DODO & CO Members, Los Santos Gang Members, SAMP Crew, Gaming Gang Leaders">
+    <meta name="author" content="DODO & CO">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="DODO & CO - Meet Our Members">
+    <meta property="og:description" content="Meet the elite members of the legendary DODO & CO gang in Los Santos.">
+    <meta property="og:image" content="assets/dodo.png">
+    <meta property="og:url" content="https://dodoandco.com/members.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DODO & CO - Meet Our Members">
+    <meta name="twitter:description" content="Meet the elite members of the legendary DODO & CO gang in Los Santos.">
+    <meta name="twitter:image" content="assets/dodo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://dodoandco.com/members.html">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/navigation.js"></script>
+    <style>
+        /* Member card animations */
+        .member-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Image reveal animation */
+        .member-image {
+            overflow: hidden;
+        }
+        
+        .member-image img {
+            transition: transform 0.5s ease;
+        }
+        
+        .member-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Enhanced member card styles */
+        .member-card {
+            transition: all 0.4s ease;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(10, 31, 47, 0.6);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .member-card::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .member-card:hover::before {
+            left: 100%;
+        }
+        
+        .member-card h3 {
+            color: #00ffff;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .member-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00ffff;
+            transition: width 0.3s ease;
+        }
+        
+        .member-card:hover h3::after {
+            width: 100%;
+        }
+        
+        .member-card p {
+            color: #e0e0e0;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .member-card .member-role {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #00ffff;
+            margin-top: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+        
+        .member-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        /* Animated background circles */
+        .background-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+            z-index: -1;
+            opacity: 0.5;
+            animation: pulseAndMove 20s infinite linear;
+        }
+        
+        @keyframes pulseAndMove {
+            0% {
+                transform: scale(0.8) translate(0, 0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.2) translate(50px, 20px);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(0.8) translate(0, 0);
+                opacity: 0.3;
+            }
+        }
+        
+        /* Page title animation */
+        .members-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .members-title::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffff, transparent);
+        }
+        
+        /* Member image styles */
+        .member-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(0, 255, 255, 0.5);
+            margin-right: 15px;
+            float: left;
+            transition: all 0.3s ease;
+        }
+        
+        .member-card:hover .member-image {
+            transform: scale(1.1) rotate(5deg);
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        
+        /* Member card hover effect */
+        .member-card:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 255, 255, 0.3);
+            background: rgba(10, 31, 47, 0.8);
+        }
+        
+        /* Add glowing border effect */
+        .member-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ffff, transparent, #00ffff, transparent);
+            background-size: 400% 400%;
+            z-index: -1;
+            border-radius: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .member-card:hover::after {
+            opacity: 1;
+            animation: borderGlow 3s ease infinite;
+        }
+        
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Leader cards - bigger and more prominent */
+        .leader-card {
+            background: linear-gradient(145deg, rgba(10, 31, 47, 0.8), rgba(0, 40, 60, 0.9));
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        
+        /* Co-leader cards - slightly bigger than regular members */
+        .co-leader-card {
+            background: linear-gradient(145deg, rgba(10, 31, 47, 0.7), rgba(0, 35, 55, 0.8));
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            padding: 25px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+            transform: scale(1.02);
+            z-index: 1;
+        }
+        
+        /* Section titles */
+        .section-title {
+            color: #00ffff;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        }
+        
+        /* Regular members list */
+        .regular-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .regular-member-item {
+            background: rgba(10, 31, 47, 0.5);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .regular-member-item:hover {
+            background: rgba(10, 31, 47, 0.7);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="assets/dodo.png" alt="DODO & CO Logo" class="logo">
+            <div class="nav-toggle">☰</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gang.html">Gang Info</a></li>
+                <li><a href="members.html" aria-current="page">Members</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="content">
+            <h1>Our Crew</h1>
+            <h2 class="section-title">Leadership</h2>
+            <ul class="member-list">
+                <li class="member-card leader-card">
+                    <img src="assets/member1.jpg" alt="DODO" class="member-image">
+                    <h3>DodoBoss - PAVANAYI</h3>
+                    <p>Founder and leader of DODO & CO. Known for strategic planning and exceptional leadership.</p>
+                    <span class="member-role">Founder</span>
+                </li>
+                <li class="member-card leader-card">
+                    <img src="assets/member2.jpg" alt="PONJIKARA" class="member-image">
+                    <h3>DodoBoss - PONJIKARA</h3>
+                    <p>Co-founder and right-hand man. Expert in tactical operations and resource management.</p>
+                    <span class="member-role">Founder</span>
+                </li>
+            </ul>
+
+            <h2 class="section-title">Co-Leaders</h2>
+            <ul class="member-list">
+                <li class="member-card co-leader-card">
+                    <img src="assets/member5.jpg" alt="PICHATHI" class="member-image">
+                    <h3>CoBoss - PICHATHI</h3>
+                    <p>Weapons specialist and tactical advisor to the leadership.</p>
+                    <span class="member-role">Co-Leader</span>
+                </li>
+                <li class="member-card co-leader-card">
+                    <img src="assets/member3.jpg" alt="GOKU" class="member-image">
+                    <h3>CoBoss - GOKU</h3>
+                    <p>Strategic operations specialist with exceptional combat skills.</p>
+                    <span class="member-role">Co-Leader</span>
+                </li>
+                <li class="member-card co-leader-card">
+                    <img src="assets/member4.jpg" alt="YAXIN" class="member-image">
+                    <h3>CoBoss - YAXIN</h3>
+                    <p>Territory management expert and skilled negotiator.</p>
+                    <span class="member-role">Co-Leader</span>
+                </li>
+            </ul>
+
+            <h2 class="section-title">Members</h2>
+            <ul class="regular-members">
+                <li class="regular-member-item">CHHOTA</li>
+                <li class="regular-member-item">KENPACHI</li>
+                <li class="regular-member-item">SUKIYA</li>
+                <li class="regular-member-item">SPEC</li>
+                <li class="regular-member-item">BALAN</li>
+                <li class="regular-member-item">DANGER</li>
+                <li class="regular-member-item">MINATO</li>
+                <li class="regular-member-item">FRANK</li>
+                <li class="regular-member-item">HIROXHI</li>
+                <li class="regular-member-item">APPAPAN</li>
+                <li class="regular-member-item">LEE</li>
+                <li class="regular-member-item">SOUL</li>
+                <li class="regular-member-item">STRELL</li>
+                <li class="regular-member-item">VASU</li>
+                <li class="regular-member-item">WICKEY</li>
+                <li class="regular-member-item">XWANE</li>
+                <li class="regular-member-item">PETER</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/dodo.png" alt="DODO & CO Logo" width="60">
+            </div>
+            <div class="footer-social">
+                <a href="https://discord.gg/enDWmazV9f" target="_blank" class="social-icon">
+                    <img src="assets/discord logo.png" width="20" height="20" alt="Discord">
+                </a>
+                <a href="https://www.instagram.com/dodo.and_co/" target="_blank" class="social-icon">
+                    <img src="assets/images-removebg-preview.png" width="20" height="20" alt="Instagram">
+                </a>
+            </div>
+            <p class="copyright">© 2025 DODO & CO. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Enhanced member page animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add floating particles
+            const content = document.querySelector('.content');
+            if (content) {
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.width = Math.random() * 4 + 2 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.opacity = Math.random() * 0.5 + 0.1;
+                    particle.style.animationDuration = Math.random() * 15 + 10 + 's';
+                    particle.style.animationDelay = Math.random() * 5 + 's';
+                    content.appendChild(particle);
+                }
+            }
+            
+            // Add 3D tilt effect to member cards
+            const memberCards = document.querySelectorAll('.member-card');
+            memberCards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const xRotation = ((y - rect.height / 2) / rect.height) * 10;
+                    const yRotation = ((x - rect.width / 2) / rect.width) * -10;
+                    
+                    gsap.to(this, {
+                        rotationX: xRotation,
+                        rotationY: yRotation,
+                        duration: 0.5,
+                        ease: 'power1.out'
+                    });
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    gsap.to(this, {
+                        rotationX: 0,
+                        rotationY: 0,
+                        duration: 0.5,
+                        ease: 'power1.out'
+                    });
+                });
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
